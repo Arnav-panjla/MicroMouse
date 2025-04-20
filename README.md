@@ -11,7 +11,7 @@ Main goal, is to build a bot which has the following properties
 - a fast microcontroller
 
 ## MMS demo
-![](img/mms.gif)
+![](mms.gif)
 
 ## Adjenda
 - Complete a base model (within 90x120)
