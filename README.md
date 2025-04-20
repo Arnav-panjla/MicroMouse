@@ -9,7 +9,9 @@ Main goal, is to build a bot which has the following properties
 - implement a self designed encoder,(basically hall effect)
 - custom pcb
 - a fast microcontroller
-  
+
+## MMS demo
+![](img/mms.gif)
 
 ## Adjenda
 - Complete a base model (within 90x120)
@@ -32,7 +34,7 @@ for now see, floodfill
 ## resources
 - simulator [mms](https://github.com/mackorone/mms)
 - yt playlist on micormouse [UCLA IEEE](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7&si=PbVkcmYhvSuIREAw)
-- (Veritasium)[https://www.youtube.com/watch?v=ZMQbHMgK2rw]
+- [Suprise Resource](https://www.youtube.com/watch?v=ZMQbHMgK2rw)
 - Some useful softwares
   - fusion(eagle)
   - Matlab(if needed)
