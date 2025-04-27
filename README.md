@@ -1,46 +1,93 @@
-# Micromouse - Robotics Summer project 2025-26
-This repository is intended to manage the codebase for the **Micromouse summer project 2025-26** (part of robotics club). Ideally, it can be extended to include other related resources as well (CAD model, calculation(Matlab), Datasheet of the electronic components etc.) Over time, it will serve as both a proof of work and a **well-documented reference** to help others continue the project beyond its initial requirements.
+# Micromouse - Robotics Summer Project 2025-26
 
-Main goal, is to build a bot which has the following properties
-- small size, within 90 x 90
-- effecient corner turning
-- fast algorithm
-- differential drive with high speed motors
-- implement a self designed encoder,(basically hall effect)
-- custom pcb
-- a fast microcontroller
+<div align="center">
+  <img src="https://img.shields.io/badge/Status-In%20Development-yellow" alt="Status: In Development">
+  <img src="https://img.shields.io/badge/Team-Robotics%20Club-blue" alt="Team: Robotics Club">
+  <img src="https://img.shields.io/badge/Platform-STM32/Arduino-orange" alt="Platform: STM32/Arduino">
+</div>
 
-## MMS demo
-![](mms.gif)
+## 🤖 Project Overview
 
-## Adjenda
-- Complete a base model (within 90x120)
-  - microgeared motor, with encoders
-  - ir leds
-  - motor driver, L293D
-  - micorcontroller (Arduino Nano)
-  - IMU
-  - implement DFS
-- reduce size, if possible without custom PCB
-- look for optimal placement of IR sensors [diagonal led](https://www.youtube.com/watch?v=VAvPl1eCIEA&list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7&index=7)
-- use a better motor driver
-- Replace arduino nano with stm32
-- use mms for algorthm simulation
+This repository houses the codebase for the **Micromouse Summer Project 2025-26**. It serves as a comprehensive collection of resources including code, CAD models, calculations, and component datasheets. Our aim is to create a well-documented reference that will enable future teams to build upon our work.
 
-## algorithm
-Need to do some research, 
-for now see, floodfill
+### 🎯 Design Goals
 
-## resources
-- simulator [mms](https://github.com/mackorone/mms)
-- yt playlist on micormouse [UCLA IEEE](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7&si=PbVkcmYhvSuIREAw)
-- [Suprise Resource](https://www.youtube.com/watch?v=ZMQbHMgK2rw)
-- Some useful softwares
-  - fusion(eagle)
-  - Matlab(if needed)
-  - Cube IDE
-  - Arduino IDE, (only for base model)
+- ✅ Compact design (within 100×100mm)
+- ✅ Efficient corner turning capability
+- ✅ Fast maze-solving algorithm
+- ✅ Differential drive with high-speed motors
+- ✅ Custom-designed hall effect encoders
+- ✅ Custom PCB implementation
+- ✅ High-performance microcontroller
+
+## 📋 Development Roadmap
+
+### Base Model (60×100mm)
+- Micro-geared motors with encoders
+- IR LED sensor array
+- L293D motor driver
+- Arduino Nano microcontroller
+- IMU for orientation tracking
+- DFS algorithm implementation
+
+### Advanced Features
+- Size reduction (potentially with custom PCB)
+- Optimized IR sensor placement ([diagonal LED configuration](https://www.youtube.com/watch?v=VAvPl1eCIEA))
+- Enhanced motor driver
+- STM32 microcontroller upgrade
+- Algorithm simulation using MMS
+
+## 🧠 Algorithm Development
+Research focus on flood-fill algorithms and optimization techniques for maze navigation.
+
+## ⏱️ Project Timeline
+
+### Week 1: Introduction
+- Review the competition rulebook
+-  Study the [UCLA IEEE Micromouse playlist](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7)
+-  Brainstorm ideas and design concepts
+-  Prepare Bill of Materials
+-  Draft electronic system diagram
+
+### Week 2: Hardware Assembly
+-  Assemble mechanical components
+-  Learn [MMS simulator](https://github.com/mackorone/mms) operation
+-  Implement baseline navigation algorithm
+
+### Week 3: Debugging
+-  Hardware and software troubleshooting
+-  Performance analysis and optimization
+
+### Week 4: Algorithm Refinement
+-  Improve navigation algorithms
+-  Enhance hardware robustness
+-  Plan optimizations based on [Veritasium analysis](https://www.youtube.com/watch?v=ZMQbHMgK2rw)
+-  Research additional enhancement opportunities
+
+### Weeks 5-7: Progressive Enhancements
+- 🔄 Implement iterative improvements (tbd)
+
+## 📚 Resources
+
+### Tools and References (tbd)
+- 🔵 [MMS Simulator](https://github.com/mackorone/mms)
+- 🎥 [UCLA IEEE Micromouse Series](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7)
+- 🧮 [Veritasium Micromouse Analysis](https://www.youtube.com/watch?v=ZMQbHMgK2rw)
+
+### Development Software
+-  Fusion/Eagle (PCB design)
+-  MATLAB (calculations if needed)
+-  STM32 Cube IDE
+-  Arduino IDE (prototype development)
+
 
 ## 🤝 Contributor Notes
-- will be following standard git workflow [here](https://www.geeksforgeeks.org/git-workflows-with-open-source-collaboration/)
-- Feel free to suggest improvements via Issues or Discussions
+- We follow the [standard Git workflow](https://www.geeksforgeeks.org/git-workflows-with-open-source-collaboration/) for collaboration
+- Suggestions for improvement are welcome via Issues or Discussions
+
+---
+
+<div align="center">
+  <i>Building the future of autonomous navigation, one maze at a time.</i>
+</div>
+
