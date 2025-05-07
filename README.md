@@ -41,22 +41,25 @@ This repository houses the codebase for the **Micromouse Summer Project 2025-26*
 Research focus on flood-fill algorithms and optimization techniques for maze navigation.
 
 ## ⏱️ Project Timeline
+Main idea is to build a very very basic version first, probably within 2 weeks and then work on modifying it, (believer me doing otherwise is stupidity...)
 
 ### Week 1: Introduction
 - Review the competition rulebook
--  Study the [UCLA IEEE Micromouse playlist](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7)
--  Brainstorm ideas and design concepts
+-  Study the [UCLA IEEE Micromouse playlist](https://youtube.com/playlist?list=PLAWsHzw_h0iiPIaGyXAr44G0XfHfyjOe7) or better if you can find a good one.
+-  Be familiar with github
+-  Brainstorm ideas and design concepts based in the video,
 -  Prepare Bill of Materials
 -  Draft electronic system diagram
 
 ### Week 2: Hardware Assembly
 -  Assemble mechanical components
 -  Learn [MMS simulator](https://github.com/mackorone/mms) operation
--  Implement baseline navigation algorithm
+-  Implement base-navigation algorithm, ( no need of very advance algo at the moment)
 
 ### Week 3: Debugging
 -  Hardware and software troubleshooting
 -  Performance analysis and optimization
+-  Some room for debugging and stuffs...
 
 ### Week 4: Algorithm Refinement
 -  Improve navigation algorithms
@@ -86,8 +89,4 @@ Research focus on flood-fill algorithms and optimization techniques for maze nav
 - Suggestions for improvement are welcome via Issues or Discussions
 
 ---
-
-<div align="center">
-  <i>Building the future of autonomous navigation, one maze at a time.</i>
-</div>
 
