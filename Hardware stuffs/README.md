@@ -47,5 +47,5 @@ TODO
 ---
 
 <div align="center">
-  <i>For software documentation, please see the <a href="SOFTWARE_README.md">Software README</a></i>
+  <i>For software documentation, please see the <a href="../CodeBase/README.md">Software README</a></i>
 </div>

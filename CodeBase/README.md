@@ -9,3 +9,8 @@
 ## 📁 Software Architecture
 
 The software for the Micromouse project is designed with modularity in mind, separating core control functions from maze-solving algorithms.
+
+
+<div align="center">
+  <i>For software documentation, please see the <a href="../CodeBase/README.md">Software README</a></i>
+</div>
