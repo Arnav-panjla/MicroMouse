@@ -12,5 +12,5 @@ The software for the Micromouse project is designed with modularity in mind, sep
 
 
 <div align="center">
-  <i>For software documentation, please see the <a href="../CodeBase/README.md">Software README</a></i>
+  <i>For software documentation, please see the <a href="../Hardware stuffs/README.md">Hardware README</a></i>
 </div>

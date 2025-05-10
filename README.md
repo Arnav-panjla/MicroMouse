@@ -4,6 +4,10 @@
   <img src="https://img.shields.io/badge/Status-In%20Development-yellow" alt="Status: In Development">
   <img src="https://img.shields.io/badge/Team-Robotics%20Club-blue" alt="Team: Robotics Club">
   <img src="https://img.shields.io/badge/Platform-STM32/Arduino-orange" alt="Platform: STM32/Arduino">
+  <div align="center">
+    <img src="./assets/chua.jpeg" width="400" alt="Project Image">
+    <br>
+  </div>
 </div>
 
 ## 🤖 Project Overview
