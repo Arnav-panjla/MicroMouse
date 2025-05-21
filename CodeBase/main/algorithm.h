@@ -1,7 +1,8 @@
 #ifndef ALGORITHM_H
 #define ALGORITHM_H
 
-void solveMaze();  // placeholder
-void applyKalmanFilter();  // placeholder
+void solveMaze();  
+void basicAlgorithm();
+void floodfillAlgorithm();
 
 #endif

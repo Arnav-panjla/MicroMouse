@@ -13,9 +13,5 @@ void setup() {
 }
 
 void loop() {
-//   turnRight(180, 150);
-  delay(500);
-
-  // Place algorithm call here in future
   // solveMaze();
 }

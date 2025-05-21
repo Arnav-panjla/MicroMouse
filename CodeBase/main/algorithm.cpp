@@ -3,7 +3,11 @@
 void solveMaze() {
   // TODO: implement maze solving algorithm here
 }
-
-void applyKalmanFilter() {
-  // TODO: implement Kalman filter here
+void basicAlgorithm() {
+  // TODO: implement maze solving algorithm here
 }
+
+void floodfillAlgorithm() {
+  // TODO: implement maze solving algorithm here
+}
+

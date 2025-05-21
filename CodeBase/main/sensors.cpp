@@ -67,7 +67,7 @@ void updateRotation() {
 
   currentTime = millis();
   float deltaTime = (currentTime - lastTime) / 1000.0;
-  float gyro_z = g.gyro.z;  // averaging loop removed for simplicity
+  float gyro_z = g.gyro.z;
   lastTime = currentTime;
 
   rotZ += gyro_z * deltaTime * 59; // GYRO_MUL
