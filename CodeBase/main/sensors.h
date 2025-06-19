@@ -1,6 +1,7 @@
 #ifndef SENSORS_H
 #define SENSORS_H
 
+#define GYRO_MUL 59
 void initMPU();
 void initLIDARS();
 void setLIDARAddresses();
@@ -11,5 +12,6 @@ void updateRotation();
 extern volatile float fr_LIDARval;
 extern volatile float ri_LIDARval;
 extern volatile float le_LIDARval;
+extern volatile float rotZ;
 
 #endif

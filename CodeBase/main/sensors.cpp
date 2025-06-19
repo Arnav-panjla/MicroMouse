@@ -12,14 +12,16 @@
 #define SHT_LOX3 4
 
 Adafruit_MPU6050 mpu;
-Adafruit_VL53L0X lox1, lox2, lox3;
+Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();
+Adafruit_VL53L0X lox2 = Adafruit_VL53L0X();
+Adafruit_VL53L0X lox3 = Adafruit_VL53L0X();
 VL53L0X_RangingMeasurementData_t measure1, measure2, measure3;
 
 volatile float fr_LIDARval = 0;
 volatile float ri_LIDARval = 0;
 volatile float le_LIDARval = 0;
 
-float rotZ = 0;
+volatile float rotZ = 0;
 unsigned long lastTime = 0, currentTime = 0;
 
 void initMPU() {
@@ -37,18 +39,50 @@ void initLIDARS() {
 }
 
 void setLIDARAddresses() {
+  // all reset
+  // digitalWrite(SHT_LOX1, LOW);    
   digitalWrite(SHT_LOX2, LOW);
   digitalWrite(SHT_LOX3, LOW);
   delay(10);
+  // all unreset
+  // digitalWrite(SHT_LOX1, HIGH);
   digitalWrite(SHT_LOX2, HIGH);
-  delay(10);
-  if (!lox1.begin(LOX1_ADDRESS)) while (1);
-
   digitalWrite(SHT_LOX3, HIGH);
   delay(10);
-  if (!lox2.begin(LOX2_ADDRESS)) while (1);
 
-  if (!lox3.begin(LOX3_ADDRESS)) while (1);
+  // activating LOX1 and resetting LOX2
+  // digitalWrite(SHT_LOX1, HIGH);
+  digitalWrite(SHT_LOX2, LOW);
+  digitalWrite(SHT_LOX3, LOW);
+
+  // initing LOX1
+  if(!lox1.begin(LOX1_ADDRESS)) {
+    Serial.println(F("Failed to boot first VL53L0X"));
+    while(1);
+  }
+  delay(10);
+
+  // activating LOX2
+  digitalWrite(SHT_LOX2, HIGH);
+  digitalWrite(SHT_LOX3, LOW);
+  delay(10);
+
+  //initing LOX2
+  if(!lox2.begin(LOX2_ADDRESS)) {
+    Serial.println(F("Failed to boot second VL53L0X"));
+    while(1);
+  }
+  delay(10);
+
+  // activating LOX2
+  digitalWrite(SHT_LOX3, HIGH);
+  delay(10);
+
+  //initing LOX2
+  if(!lox3.begin(LOX3_ADDRESS)) {
+    Serial.println(F("Failed to boot third VL53L0X"));
+    while(1);
+  }
 }
 
 void read_sensors() {
@@ -56,9 +90,9 @@ void read_sensors() {
   lox2.rangingTest(&measure2, false);
   lox3.rangingTest(&measure3, false);
 
-  if (measure1.RangeStatus != 4) ri_LIDARval = abs(measure1.RangeMilliMeter - 40);
-  if (measure2.RangeStatus != 4) le_LIDARval = abs(measure2.RangeMilliMeter - 40);
-  if (measure3.RangeStatus != 4) fr_LIDARval = measure3.RangeMilliMeter;
+  if (measure1.RangeStatus != 4) ri_LIDARval = abs(measure1.RangeMilliMeter - 50);
+  if (measure2.RangeStatus != 4) le_LIDARval = abs(measure2.RangeMilliMeter - 30);
+  if (measure3.RangeStatus != 4) fr_LIDARval = abs(measure3.RangeMilliMeter - 30);
 }
 
 void updateRotation() {
@@ -70,5 +104,5 @@ void updateRotation() {
   float gyro_z = g.gyro.z;
   lastTime = currentTime;
 
-  rotZ += gyro_z * deltaTime * 59; // GYRO_MUL
+  rotZ += gyro_z * deltaTime * GYRO_MUL;
 }
