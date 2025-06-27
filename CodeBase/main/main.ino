@@ -10,8 +10,12 @@ void setup() {
   initMPU();
   initLIDARS();
   setLIDARAddresses();
+  
 }
 
 void loop() {
-  // solveMaze();
+  read_sensors();
+  dir path[8] = {dir::NORTH, dir::EAST, dir::NORTH, dir::EAST, dir::SOUTH, dir::SOUTH, dir::WEST, dir::WEST};
+  followPath(path, 8);
+  delay(500);
 }

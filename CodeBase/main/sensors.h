@@ -1,7 +1,7 @@
 #ifndef SENSORS_H
 #define SENSORS_H
 
-#define GYRO_MUL 59
+#define GYRO_MUL 65.5
 void initMPU();
 void initLIDARS();
 void setLIDARAddresses();

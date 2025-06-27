@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include "encoders.h"
 #include "sensors.h"
+#include "algorithm.h"
 
 int EN1 = 0, PH1 = 1, EN2 = 2, PH2 = 10;
 
@@ -42,7 +43,7 @@ void turn(float target_rot, float speed){
     {
       M1_Forward(0);
       M2_Forward(0);
-      for(int i=0; i<20; i++)
+      for(int i=0; i<200; i++)
       {
         delay(1);
         updateRotation();
@@ -52,13 +53,13 @@ void turn(float target_rot, float speed){
     }
     else if(target_rot < rotZ)
     {
-      M1_Forward(x*speed);
-      M2_Backward(x*speed);
+      M1_Forward(max(20.0f,x*speed));
+      M2_Backward(max(20.0f,x*speed));
     }
     else if(target_rot > rotZ)
     {
-      M1_Backward(x*speed);
-      M2_Forward(x*speed);
+      M1_Backward(max(20.0f,x*speed));
+      M2_Forward(max(20.0f,x*speed));
     }
   }
   M1_Forward(0);
@@ -90,19 +91,22 @@ void move(int encoder1Target, int encoder2Target, float speed)
     
     float x1 = 1-(1-diff1)*(1-diff1);
     float x2 = 1-(1-diff2)*(1-diff2);
-    if(diff2*3*speed<5)
-      M2_Forward(0);
-    else if(encoder2Target>encoder2Value)
-      M2_Forward(x2*speed);
-    else if(encoder2Target<encoder2Value)
-      M2_Backward(x2*speed);
+    // if(diff2*3*speed<5)
+    //   M2_Forward(0);
+    // else if(encoder2Target>encoder2Value)
+    //   M2_Forward(x2*speed);
+    // else if(encoder2Target<encoder2Value)
+    //   M2_Backward(x2*speed);
     
-    if(diff1*3*speed<5)
-      M1_Forward(0);
-    else if(encoder1Target>encoder1Value)
-      M1_Forward(x1*speed);
+    if(encoder2Target>encoder2Value)
+      M2_Forward(max(20.0f,x2*speed));
+    else if(encoder2Target<encoder2Value)
+      M2_Backward(max(20.0f, x2*speed)); 
+    
+    if(encoder1Target>encoder1Value)
+      M1_Forward(max(20.0f, x1*speed));
     else if(encoder1Target<encoder1Value)
-      M1_Backward(x1*speed);
+      M1_Backward(max(20.0f, x1*speed));
   }
 }
 
@@ -114,4 +118,74 @@ void moveForward(int steps, int speed)
 void moveBackward(int steps, int speed)
 {
   moveForward(-steps, speed);
+}
+
+
+void left()
+{
+  turnLeft(90, 150);
+}
+
+void right()
+{
+  turnRight(90, 150);
+}
+
+void forward()
+{
+  moveForward(16*CM_TO_STEPS, 150);
+}
+
+void followPath(dir* path, int pathLength)
+{
+  dir currDir = dir::NORTH;
+  for(int i=0; i<pathLength; i++)
+  {
+    dir d=path[i];
+    if(d==currDir)
+    {
+      forward();
+    }
+    else if(d==dir::NORTH && currDir==dir::EAST)
+    {
+      left();
+      forward();
+    }
+    else if(d==dir::NORTH && currDir==dir::WEST)
+    {
+      right();
+      forward();
+    }
+    else if(d==dir::SOUTH && currDir==dir::EAST)
+    {
+      right();
+      forward();
+    }
+    else if(d==dir::SOUTH && currDir==dir::WEST)
+    {
+      left();
+      forward();
+    }
+    else if(d==dir::EAST && currDir==dir::NORTH)
+    {
+      right();
+      forward();
+    }
+    else if(d==dir::EAST && currDir==dir::SOUTH)
+    {
+      left();
+      forward();
+    }
+    else if(d==dir::WEST && currDir==dir::NORTH)
+    {
+      left();
+      forward();
+    }
+    else if(d==dir::WEST && currDir==dir::SOUTH)
+    {
+      right();
+      forward();
+    }
+    currDir = d;
+  }
 }
