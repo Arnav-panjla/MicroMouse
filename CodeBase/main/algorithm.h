@@ -24,7 +24,7 @@ struct Maze {
 };
 
 // Creates a new maze with interconnected nodes
-Maze* new_Maze();
+Maze new_Maze();
 
 // Updates node values recursively for flood fill algorithm
 void updateVal(Node &node, uint8_t val);
@@ -33,7 +33,7 @@ void updateVal(Node &node, uint8_t val);
 void flood(Maze &maze, uint8_t goal[2]);
 
 // Calculates and returns the shortest path from (0,0) to goal
-dir* shortestPath(Maze &maze, uint8_t goal[2]);
+// void shortestPath(Maze &maze, uint8_t goal[2]);
 
 // Add a wall in a specific direction from a node
 void addWall(Node &node, dir direction);

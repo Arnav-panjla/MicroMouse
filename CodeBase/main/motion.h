@@ -18,5 +18,8 @@ void turnRight(float degrees, float speed);
 void turnLeft(float degrees, int speed);
 
 void followPath(dir* path, int pathLength);
+void left();
+void right();
+void forward();
 
 #endif

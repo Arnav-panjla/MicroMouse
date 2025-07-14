@@ -12,6 +12,8 @@
 #define SHT_LOX3 4
 
 Adafruit_MPU6050 mpu;
+float mpu_diff = 0;
+
 Adafruit_VL53L0X lox1 = Adafruit_VL53L0X();
 Adafruit_VL53L0X lox2 = Adafruit_VL53L0X();
 Adafruit_VL53L0X lox3 = Adafruit_VL53L0X();
@@ -29,6 +31,15 @@ void initMPU() {
   mpu.setAccelerometerRange(MPU6050_RANGE_2_G);
   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
+
+  sensors_event_t a, g, temp;
+
+  float x = 0;
+  for (int i=0; i<100; i++) {
+    mpu.getEvent(&a, &g, &temp);
+    x+=g.gyro.z;
+  }
+  mpu_diff = x/100;
 }
 
 void initLIDARS() {
@@ -101,7 +112,8 @@ void updateRotation() {
 
   currentTime = millis();
   float deltaTime = (currentTime - lastTime) / 1000.0;
-  float gyro_z = g.gyro.z;
+  if (deltaTime > 0.1) {deltaTime = 0;}
+  float gyro_z = g.gyro.z - mpu_diff;
   lastTime = currentTime;
 
   rotZ += gyro_z * deltaTime * GYRO_MUL;

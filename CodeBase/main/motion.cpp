@@ -36,14 +36,14 @@ void turn(float target_rot, float speed){
   {
     diff = abs(target_rot-rotZ)/(GYRO_MUL);
     if(diff>1) diff=1;
-    Serial.println(diff);
+    // Serial.println(diff);
     float x = 1-(1-diff)*(1-diff);
     updateRotation();
     if(diff<0.02)
     {
       M1_Forward(0);
       M2_Forward(0);
-      for(int i=0; i<200; i++)
+      for(int i=0; i<20; i++)
       {
         delay(1);
         updateRotation();
@@ -67,11 +67,13 @@ void turn(float target_rot, float speed){
 }
 
 void turnRight(float degrees, float speed){
+  rotZ = 0;
   float target_rot = rotZ - degrees;
   turn(target_rot, speed);
 }
 
 void turnLeft(float degrees, int speed){
+  rotZ = 0;
   float target_rot = rotZ + degrees;
   turn(target_rot, speed);
 }
@@ -84,8 +86,8 @@ void move(int encoder1Target, int encoder2Target, float speed)
   {
     diff1 = abs(encoder1Target-encoder1Value)/(3*speed);
     diff2 = abs(encoder2Target-encoder2Value)/(3*speed);
-    Serial.println(diff1);
-    Serial.println(diff2);
+    // Serial.println(diff1);
+    // Serial.println(diff2);
     if(diff1>1) diff1=1;
     if(diff2>1) diff2=1;
     
