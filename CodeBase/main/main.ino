@@ -17,7 +17,7 @@ void loop() {
   read_sensors();
   uint8_t coord[2] = {0,0};
   uint8_t goal[2] = {2,5};
-  float lidar_threshold = 80;
+  float lidar_threshold = 120;
   dir cur_dir = dir::NORTH;
   Maze m = new_Maze();
   while (coord != goal) {

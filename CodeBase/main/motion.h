@@ -3,7 +3,7 @@
 
 #include "algorithm.h"
 
-#define CM_TO_STEPS 75
+#define CM_TO_STEPS 90
 void initMotors();
 void M1_Forward(int Speed1);
 void M1_Backward(int Speed1);
